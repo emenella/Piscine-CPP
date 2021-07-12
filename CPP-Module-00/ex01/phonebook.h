@@ -7,10 +7,16 @@ class Phonebook
 {
 	private:
 		Contact *contacts[8];
-		int indexContact;
+		int nbContact;
+		int isContinue;
 
 	public:
-		Phonebook(/* args */);
+		Phonebook();
 		~Phonebook();
+		void start();
+		void add_contact();
+		void search();
+		int get_nbContact();
+
 };
 #endif

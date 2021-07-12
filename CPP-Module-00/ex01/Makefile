@@ -1,6 +1,6 @@
 GCC := clang++ -Wall -Wextra -Werror
-SRC := ./megaphone.cpp
-NAME := megaphone
+SRC := ./contact.cpp ./phonebook.cpp ./main.cpp
+NAME := phonebook
 OBJ=$(SRC:.cpp=.o)
 
 all: $(NAME)
