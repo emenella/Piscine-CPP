@@ -1,6 +1,7 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 # include <iostream>
+# include <iomanip> 
 # include "contact.h"
 
 class Phonebook
@@ -19,4 +20,5 @@ class Phonebook
 		int get_nbContact();
 
 };
+void write_lineX();
 #endif
