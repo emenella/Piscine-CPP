@@ -1,6 +1,7 @@
 # include "Account.hpp"
 # include <iostream>
 # include <ctime>
+# include <iomanip> 
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -43,13 +44,13 @@ void	Account::_displayTimestamp( void )
     std::time_t localtime = time(NULL);
     std::tm *timestamp = std::localtime(&localtime);
     
-    std::cout << std::setfill('0') << "[" << (utc_tm.tm_year + 1900)
-			<< std::setw(2) << utc_tm.tm_mon
-			<< std::setw(2) << utc_tm.tm_mday << "_"
-			<< std::setw(2) << utc_tm.tm_hour
-			<< std::setw(2) << utc_tm.tm_min
-			<< std::setw(2) << utc_tm.tm_sec << "] ";
-	//std::cout << "[19920104_091532] ";
+    std::cout << std::setfill('0') << "[" << (timestamp->tm_year + 1900)
+			<< std::setw(2) << timestamp->tm_mon
+			<< std::setw(2) << timestamp->tm_mday << "_"
+			<< std::setw(2) << timestamp->tm_hour
+			<< std::setw(2) << timestamp->tm_min
+			<< std::setw(2) << timestamp->tm_sec << "] ";
+	// std::cout << "[19920104_091532] ";
 }
 
 void	Account::displayAccountsInfos( void )
