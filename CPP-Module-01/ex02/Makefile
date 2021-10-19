@@ -1,6 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
-SRC := ./main.cpp ./Weapon.cpp ./HumanA.cpp ./HumanB.cpp
-NAME := human
+SRC := ./main.cpp
+NAME := brain
 OBJ=$(SRC:.cpp=.o)
 
 all: $(NAME)

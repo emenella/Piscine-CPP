@@ -1,8 +1,12 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB() {}
+HumanB::HumanB(): w(NULL) {}
 HumanB::HumanB(std::string name): name(name) {}
-HumanB::~HumanB() {}
+
+HumanB::~HumanB()
+{
+    std::cout << name << " is delete." << std::endl;
+}
 
 void    HumanB::setWeapon(Weapon &w)
 {   
