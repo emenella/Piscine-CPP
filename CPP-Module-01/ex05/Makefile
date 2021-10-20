@@ -1,6 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
-SRC := ./Account.cpp ./tests.cpp
-NAME := dreamjob
+SRC := ./main.cpp ./Karen.cpp
+NAME := karen
 OBJ=$(SRC:.cpp=.o)
 
 all: $(NAME)
