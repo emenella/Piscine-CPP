@@ -13,7 +13,7 @@ int main()
 	renka.complain("ERROR");
 	renka.complain("INFO");
 	renka.complain("WARNING");
-	renka.complain("WARNING");
 	renka.complain("ERROR");
 	renka.complain("DEBUG");
+	renka.complain("WARNING");
 }
