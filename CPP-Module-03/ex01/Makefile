@@ -1,5 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
-SRC := ./main.cpp ./ClapTrap.cpp
+SRC := ./main.cpp ./ClapTrap.cpp ./ScavTrap.cpp
+INC := ./ClapTrap.hpp ./ScavTrap.hpp
 NAME := claptrap
 OBJ=$(SRC:.cpp=.o)
 
@@ -8,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 		$(GCC) -o $(NAME) $(OBJ)
 
-%.o: %.cpp
+%.o: %.cpp $(INC)
 		$(GCC) -o $@ -c $<
 
 clean:

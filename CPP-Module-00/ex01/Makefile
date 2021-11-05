@@ -1,5 +1,6 @@
 GCC := clang++ -Wall -Wextra -Werror
 SRC := ./contact.cpp ./phonebook.cpp ./main.cpp
+INC := ./contact.hpp ./phonebook.hpp
 NAME := phonebook
 OBJ=$(SRC:.cpp=.o)
 
@@ -8,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 		$(GCC) -o $(NAME) $(OBJ)
 
-%.o: %.cpp
+%.o: %.cpp $(INC)
 		$(GCC) -o $@ -c $<
 
 clean:

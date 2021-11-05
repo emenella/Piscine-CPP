@@ -1,5 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
 SRC := ./main.cpp ./Karen.cpp
+INC := ./Karen.hpp
 NAME := karenfilter
 OBJ=$(SRC:.cpp=.o)
 

@@ -1,10 +1,10 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	ClapTrap cp0("One");
-	ClapTrap cp1("Two");
-	ClapTrap cp2("");
+	ScavTrap cp0("One");
+	ScavTrap cp1("Two");
+	ScavTrap cp2("");
 
 	cp0.attack("Two");
 	cp1.attack("One");

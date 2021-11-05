@@ -1,5 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
 SRC := ./main.cpp ./ClapTrap.cpp
+INC := ./ClapTrap.hpp
 NAME := claptrap
 OBJ=$(SRC:.cpp=.o)
 

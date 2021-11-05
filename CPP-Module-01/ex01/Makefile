@@ -1,5 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
 SRC := ./main.cpp ./ZombieHorde.cpp ./Zombie.cpp
+INC := ./Zombie.hpp
 NAME := zombie
 OBJ=$(SRC:.cpp=.o)
 

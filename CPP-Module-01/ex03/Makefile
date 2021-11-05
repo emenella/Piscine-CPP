@@ -1,5 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
 SRC := ./main.cpp ./Weapon.cpp ./HumanA.cpp ./HumanB.cpp
+INC := ./Weapon.hpp ./HumanA.hpp ./HumanB.hpp
 NAME := human
 OBJ=$(SRC:.cpp=.o)
 

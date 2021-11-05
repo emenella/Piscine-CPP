@@ -1,5 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
 SRC := ./main.cpp ./Fixed.cpp
+INC := ./Fixed.hpp
 NAME := fixed
 OBJ=$(SRC:.cpp=.o)
 
