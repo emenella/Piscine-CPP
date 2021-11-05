@@ -12,7 +12,10 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
     attackDmg = 20;
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap()
+{
+    ClapTrap::~ClapTrap();
+}
 
 ScavTrap& ScavTrap::ScavTrap::operator=(const ScavTrap &st)
 {

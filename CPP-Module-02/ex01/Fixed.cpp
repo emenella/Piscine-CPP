@@ -4,7 +4,7 @@ const int Fixed::fractional = 8;
 
 Fixed::Fixed(): fixed(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default √" << std::endl;
 }
 
 Fixed::Fixed(const int i)

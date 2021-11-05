@@ -1,7 +1,7 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
-SRC := ./main.cpp ./ClapTrap.cpp ./ScavTrap.cpp
-INC := ./ClapTrap.hpp ./ScavTrap.hpp
-NAME := scavtrap
+SRC := ./main.cpp ./ClapTrap.cpp ./FragTrap.cpp ./ScavTrap.cpp
+INC := ./ClapTrap.hpp ./FragTrap.hpp ./ScavTrap.hpp
+NAME := fragtrap
 OBJ=$(SRC:.cpp=.o)
 
 all: $(NAME)
