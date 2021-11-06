@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap(): name(""), hitPoints(10), energyPoints(10), attackDmg(0)
 {
-	std::cout << "<" << name << "> create" << std::endl;
+	std::cout << "ClapTrap <" << name << "> create" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): name(name), hitPoints(10), energyPoints(10), attackDmg(0)
@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(std::string name): name(name), hitPoints(10), energyPoints(10
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap <" << name << "> dead" << std::endl;
+	std::cout << "ClapTrap "<< "<" << name << "> dead" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &ct)

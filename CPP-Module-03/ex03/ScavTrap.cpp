@@ -10,9 +10,13 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
     hitPoints = 100;
     energyPoints = 50;
     attackDmg = 20;
+	std::cout << "ScavTrap <" << ClapTrap::name << "> create" << std::endl;
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap <" << ClapTrap::name << "> dead" << std::endl;
+}
 
 ScavTrap& ScavTrap::ScavTrap::operator=(const ScavTrap &st)
 {
