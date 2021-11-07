@@ -1,6 +1,6 @@
 GCC := clang++ -Wall -Wextra -Werror
 SRC := ./contact.cpp ./phonebook.cpp ./main.cpp
-INC := ./contact.hpp ./phonebook.hpp
+INC := ./contact.h ./phonebook.h
 NAME := phonebook
 OBJ=$(SRC:.cpp=.o)
 
