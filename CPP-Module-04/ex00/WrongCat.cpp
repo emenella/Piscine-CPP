@@ -1,13 +1,14 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(): type("Cat")
+WrongCat::WrongCat()
 {
-	std::cout << "Un chat apparait !" << std::endl; 
+	WrongAnimal("Tac");
+	std::cout << "Un Tac apparait !" << std::endl; 
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "Un chat disparait !" << std::endl;
+	std::cout << "Un Tac disparait !" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &c)
@@ -27,5 +28,5 @@ WrongCat& WrongCat::operator=(const WrongCat &st)
 
 void WrongCat::makeSound()
 {
-	std::cout << "MEOW MEOW MEOW !!!!" << std::endl;
+	std::cout << "WOEM WOEM WOEM !!!!" << std::endl;
 }

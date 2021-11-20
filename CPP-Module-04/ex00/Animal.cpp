@@ -19,9 +19,9 @@ Animal& Animal::operator=(const Animal &ct)
 	return *this;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "..." << std::endl << "no animals have heard" << std::endl;
 }
 
-const std::string Animal::getType() { return type; }
+std::string Animal::getType() const { return type; }

@@ -3,12 +3,12 @@
 # include <iostream>
 # include "Animal.hpp"
 
-class Dog: public virtual Animal
+class Dog: public Animal
 {
 	public:
 		Dog();
 	    ~Dog(); 
 		Dog(const Dog&);
 	    Dog& operator=(const Dog&);
-		void makeSound();
+		virtual void makeSound() const;
 };

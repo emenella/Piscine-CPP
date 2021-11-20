@@ -1,13 +1,13 @@
 #include "Dog.hpp"
 
-Dog::Dog():type("")
+Dog::Dog(): Animal("Dog")
 {
-	std::cout << "Un chat apparait !" << std::endl; 
+	std::cout << "Un chien apparait !" << std::endl; 
 }
 
 Dog::~Dog()
 {
-	std::cout << "Un chat disparait !" << std::endl;
+	std::cout << "Un chien disparait !" << std::endl;
 }
 
 Dog::Dog(const Dog &c)
@@ -25,7 +25,7 @@ Dog& Dog::operator=(const Dog &st)
 	return *this;
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
 	std::cout << "OAF OAF OAF !!!!" << std::endl;
 }

@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat():type("")
+Cat::Cat(): Animal("Cat")
 {
 	std::cout << "Un chat apparait !" << std::endl; 
 }
@@ -25,7 +25,7 @@ Cat& Cat::operator=(const Cat &st)
 	return *this;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "MEOW MEOW MEOW !!!!" << std::endl;
 }
