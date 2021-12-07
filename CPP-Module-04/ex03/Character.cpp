@@ -1,19 +1,18 @@
 #include "Character.hpp"
 
-Character::Character()
+Character::Character(): inventory(), name("")
 {
-	inventory = new AMateria[4];
 }
 
-Character::Character(std::string name): name(name)
+Character::Character(std::string name): name(name), inventory()
 {
 
 }
 
-Character::Character(Character& c)
+Character::Character(Character& c): name(c.name), inventory()
 {
-	this->name = c.name;
-	this->inventory = c.inventory;
+	for (int i = 0; i < SLOT; i++)
+			this->inventory[i] = c.inventory[i];
 }
 
 Character& Character::operator=(const Character& st)
@@ -21,7 +20,8 @@ Character& Character::operator=(const Character& st)
 	if (this != &st)
 	{
 		this->name = st.name;
-		this->inventory = st.inventory;
+		for (int i = 0; i < SLOT; i++)
+			this->inventory[i] = st.inventory[i];
 	}
 	return *this;
 }
@@ -33,20 +33,27 @@ Character::~Character()
 
 std::string const & Character::getName() const
 {
-
+	return (this->name);
 }
 
 void Character::equip(AMateria* m)
 {
-
+	for(int i = 0; i < SLOT; i++)
+		if (inventory[i] == NULL)
+		{
+			inventory[i] = m;
+			return ;
+		}
+	std::cout << "inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-
+	inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-
+	if (this->inventory[idx])
+		this->inventory[idx]->use(target);
 }

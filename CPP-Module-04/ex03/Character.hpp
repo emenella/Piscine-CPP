@@ -1,11 +1,13 @@
 #pragma once
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include <iostream>
+# define SLOT 4
 
 class Character: public ICharacter
 {
 	private:
-		AMateria	*inventory;
+		AMateria	*inventory[SLOT];
 		std::string	name;
 	public:
 		Character();

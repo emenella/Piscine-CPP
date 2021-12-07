@@ -11,6 +11,7 @@ class AMateria
     public:
         AMateria();
         AMateria(std::string const & type);
+        AMateria::AMateria(AMateria &c);
         ~AMateria();
         AMateria& operator=(const AMateria&);
 
