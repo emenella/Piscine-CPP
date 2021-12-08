@@ -1,13 +1,24 @@
-#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
-IMateriaSource::~IMateriaSource() {}
+MateriaSource::MateriaSource(): tab(), index(0), typeObjet() {}
 
-void IMateriaSource::learnMateria(AMateria* materia)
+MateriaSource::~MateriaSource() {}
+
+void MateriaSource::learnMateria(AMateria* materia) 
 {
-	
+	for(int i = 0; i < NB_MATERIAL; i++)
+		if (tab[i] == NULL)
+		{
+			tab[i] = materia;
+			typeObjet[i] = materia->getType();
+			return ;
+		}
 }
 
-AMateria* IMateriaSource::createMateria(std::string const & type)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	AMateria 
+	for(int i = 0; i < NB_MATERIAL; i++) 
+		if (typeObjet[i] == type)
+			return(tab[i]->clone());
+	return (0);
 }

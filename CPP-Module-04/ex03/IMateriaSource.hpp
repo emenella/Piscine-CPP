@@ -1,6 +1,7 @@
 #pragma once
 # include <iostream>
 # include "AMateria.hpp"
+# define NB_MATERIAL 4
 
 class IMateriaSource
 {

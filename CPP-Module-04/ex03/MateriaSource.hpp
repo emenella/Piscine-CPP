@@ -1,11 +1,17 @@
 #pragma once
 # include <iostream>
-# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
+	private:
+		AMateria *tab[NB_MATERIAL];
+		int index;
+		std::string typeObjet[NB_MATERIAL];
+
 	public:
-		~MateriaSource() {}
+		MateriaSource();
+		~MateriaSource();
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
 };

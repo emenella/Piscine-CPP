@@ -1,6 +1,20 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
-SRC := ./main.cpp
-INC := 
+
+SRC :=	AMateria.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp \
+		main.cpp \
+
+INC :=	AMateria.hpp \
+		Character.hpp \
+		Cure.hpp \
+		ICharacter.hpp \
+		IMateriaSource.hpp \
+		Ice.hpp \
+		MateriaSource.hpp \
+
 NAME := Materia
 OBJ=$(SRC:.cpp=.o)
 
@@ -19,3 +33,10 @@ fclean:
 		rm -f $(NAME) $(OBJ) 
 
 re: fclean all
+
+
+
+
+
+
+

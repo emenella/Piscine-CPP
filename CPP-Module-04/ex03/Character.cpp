@@ -4,12 +4,12 @@ Character::Character(): inventory(), name("")
 {
 }
 
-Character::Character(std::string name): name(name), inventory()
+Character::Character(std::string name): inventory(), name(name)
 {
 
 }
 
-Character::Character(Character& c): name(c.name), inventory()
+Character::Character(Character& c): inventory(), name(c.name)
 {
 	for (int i = 0; i < SLOT; i++)
 			this->inventory[i] = c.inventory[i];
@@ -28,7 +28,9 @@ Character& Character::operator=(const Character& st)
 
 Character::~Character()
 {
-	delete[] inventory;
+	for (int i = 0; i < SLOT; i++)
+		if (inventory[i] != NULL)
+			delete inventory[i];
 }
 
 std::string const & Character::getName() const
