@@ -1,13 +1,12 @@
 #include "Cure.hpp"
 
-Cure::Cure(): AMateria() { type = "<NoType>"; }
+Cure::Cure(): AMateria("cure") {}
 
-Cure::Cure(std::string const & type): AMateria()
+Cure::Cure(std::string const & type): AMateria(type)
 {
-	this->type = type;
 }
 
-Cure::Cure(Cure &c): AMateria(), type(c.type) {}
+Cure::Cure(Cure &c): AMateria(c.type) {}
 
 Cure::~Cure() {}
 
@@ -18,8 +17,13 @@ Cure& Cure::operator=(const Cure& st)
 	return *this;
 }
 
-AMateria* Cure::clone() const
+Cure* Cure::clone() const
 {
-    AMateria *am = new AMateria(type);
-    return (am);
+	Cure* clone = new Cure();
+	return(clone);
 }
+
+// void Cure::use(ICharacter& target)
+// {
+// 	AMateria::use(target);
+// }

@@ -1,13 +1,10 @@
 #include "Ice.hpp"
 
-Ice::Ice(): AMateria() { type = "<NoType>"; }
+Ice::Ice(): AMateria("ice") {}
 
-Ice::Ice(std::string const & type): AMateria()
-{
-	this->type = type;
-}
+Ice::Ice(std::string const & type): AMateria(type) {}
 
-Ice::Ice(Ice &c): AMateria(), type(c.type) {}
+Ice::Ice(Ice &c): AMateria(c.type) {}
 
 Ice::~Ice() {}
 
@@ -18,8 +15,13 @@ Ice& Ice::operator=(const Ice& st)
 	return *this;
 }
 
-AMateria* Ice::clone() const
+Ice* Ice::clone() const
 {
-    AMateria *am = new AMateria(type);
-    return (am);
+	Ice* clone = new Ice();
+	return(clone);
 }
+
+// void Ice::use(ICharacter& target)
+// {
+// 	AMateria::use(target);
+// }

@@ -6,7 +6,6 @@ class MateriaSource : public IMateriaSource
 {
 	private:
 		AMateria *tab[NB_MATERIAL];
-		int index;
 		std::string typeObjet[NB_MATERIAL];
 
 	public:

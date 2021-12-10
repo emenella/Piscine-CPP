@@ -1,6 +1,6 @@
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(): tab(), index(0), typeObjet() {}
+MateriaSource::MateriaSource(): tab(), typeObjet() {}
 
 MateriaSource::~MateriaSource() {}
 
