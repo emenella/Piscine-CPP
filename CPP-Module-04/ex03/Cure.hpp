@@ -11,5 +11,5 @@ class Cure : public AMateria
         Cure(std::string const &);
         Cure(Cure &c);
         Cure&   operator=(const Cure&);
-        virtual Cure* clone() const;
+        Cure* clone() const;
 };
