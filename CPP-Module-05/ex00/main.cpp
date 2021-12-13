@@ -18,6 +18,7 @@ int main()
 		--poleEmploi;
 		std::cout << poleEmploi << std::endl;
 		--poleEmploi;
+		std::cout << poleEmploi << std::endl;
 	}
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
@@ -40,6 +41,7 @@ int main()
 		++(*crous);
 		std::cout << *crous << std::endl;
 		++(*crous);
+		std::cout << *crous << std::endl;
 	}
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
@@ -49,4 +51,5 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	delete crous;
 }

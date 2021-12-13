@@ -1,8 +1,8 @@
 #pragma once
 # include <iostream>
 # include <exception>
-# define ERR_HIGH "Exception: grade is too high"
-# define ERR_LOW "Exception: grade is too low"
+# define ERR_HIGH "Exception: grade is too high from "
+# define ERR_LOW "Exception: grade is too low from "
 
 class Bureaucrat
 {
@@ -26,7 +26,7 @@ class Bureaucrat
 			private:
 				std::string cause;
 			public:
-				GradeTooHighException() throw(): cause(ERR_HIGH) {}
+				GradeTooHighException(const std::string name) throw(): cause(ERR_HIGH + name) {}
 				~GradeTooHighException() throw() {}
 				const char* what() const throw() {return (cause.c_str());}
 		};
@@ -35,7 +35,7 @@ class Bureaucrat
 			private:
 				std::string cause;
 			public:
-				GradeTooLowException() throw(): cause(ERR_LOW) {}
+				GradeTooLowException(const std::string name) throw(): cause(ERR_HIGH + name) {}
 				~GradeTooLowException() throw() {}
 				const char* what() const throw() {return (cause.c_str());}
 		};
