@@ -9,6 +9,7 @@ class Phonebook
 	private:
 		Contact *contacts[8];
 		int nbContact;
+		int oldContact;
 		int isContinue;
 
 	public:

@@ -1,17 +1,32 @@
 #include "contact.h"
+#define NB_ASK 5
 
 Contact::Contact()
 {
-	std::cout << "first name:";
-	std::cin >> this->first_name;
-	std::cout << "last name:";
-	std::cin >> this->last_name;
-	std::cout << "nickname:";
-	std::cin >> this->nickname;
-	std::cout << "phone number:";
-	std::cin >> this->phone_number;
-	std::cout << "darkest secret:";
-	std::cin >> this->darkest_secret;
+	std::string std[NB_ASK] = {
+		"first name",
+		"last name",
+		"nickname",
+		"phone number",
+		"darkest secret"
+	};
+	std::string *this_set[NB_ASK] = {
+		&this->first_name,
+		&this->last_name,
+		&this->nickname,
+		&this->phone_number,
+		&this->darkest_secret
+	};
+	for (int i = 0; i < NB_ASK; i++)
+	{
+		std::cout << std[i] << ": ";
+		std::getline(std::cin, *this_set[i]);
+		while (*this_set[i] == "")
+		{
+			std::getline(std::cin, *this_set[i]);
+			std::cout << "Please type a " << std[i] << std::endl;
+		}
+	}
 	#ifdef DEBUG
 	std::cout << "Contact create" << endl;
 	#endif

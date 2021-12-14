@@ -11,7 +11,7 @@ class Contact
 		std::string phone_number;
 		std::string darkest_secret;
 	public:
-		Contact(/* args */);
+		Contact();
 		~Contact();
 		std::string get_first_name(void);
 		std::string get_last_name(void);

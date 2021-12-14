@@ -1,4 +1,4 @@
-GCC := clang++ -Wall -Wextra -Werror
+GCC := clang++ -std=c++98 -Wall -Wextra -Werror
 SRC := ./contact.cpp ./phonebook.cpp ./main.cpp
 INC := ./contact.h ./phonebook.h
 NAME := phonebook
