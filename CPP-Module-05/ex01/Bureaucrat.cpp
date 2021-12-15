@@ -5,9 +5,9 @@ Bureaucrat::Bureaucrat(): name("Default Bureaucrat"), grade(150) {}
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name), grade(grade)
 {
 	if (grade < 1)
-		throw Bureaucrat::GradeTooLowException(this->name);
-	else if (grade > 150)
 		throw Bureaucrat::GradeTooHighException(this->name);
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException(this->name);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src): name(src.name), grade(src.grade) {}
@@ -78,6 +78,16 @@ Bureaucrat Bureaucrat::operator--(int)
 	}
 	else
 		throw (Bureaucrat::GradeTooLowException(name));
+}
+
+void Bureaucrat::signForm(Form& obj)
+{
+	if (grade > 150)
+		std::cout << "<bureaucrat "<< name << "> cannot sign <" << obj.getName() << "> because <" << ERR_LOW << ">" << std::endl;
+	else if (grade < 1)
+		std::cout << "<bureaucrat "<< name << "> cannot sign <" << obj.getName() << "> because <" << ERR_HIGH << ">" << std::endl;
+	else
+		std::cout << "<bureaucrat "<< name << "> signs <form>" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &obj)

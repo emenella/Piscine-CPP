@@ -1,6 +1,7 @@
 #pragma once
 # include <iostream>
 # include <exception>
+# include "Form.hpp"
 # define ERR_HIGH "Exception: grade is too high from "
 # define ERR_LOW "Exception: grade is too low from "
 
@@ -21,6 +22,7 @@ class Bureaucrat
 		Bureaucrat operator++(int);
 		Bureaucrat& operator--();
 		Bureaucrat operator--(int);
+		void signForm(Form&);
 		class GradeTooHighException : public std::exception
 		{
 			private:

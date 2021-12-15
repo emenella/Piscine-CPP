@@ -31,6 +31,8 @@ int main()
 
 	try
 	{
+		Form *bourse = new Form("bourse", 5);
+		Form cvec = Form("CVEC", 1);
 		std::cout << *crous << std::endl;
 		(*crous)--;
 		std::cout << *crous << std::endl;
