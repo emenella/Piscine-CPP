@@ -5,9 +5,9 @@ Bureaucrat::Bureaucrat(): name("Default Bureaucrat"), grade(150) {}
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name), grade(grade)
 {
 	if (grade < 1)
-		throw Bureaucrat::GradeTooLowException(this->name);
-	else if (grade > 150)
 		throw Bureaucrat::GradeTooHighException(this->name);
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException(this->name);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src): name(src.name), grade(src.grade) {}
