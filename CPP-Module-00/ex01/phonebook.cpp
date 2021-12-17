@@ -3,6 +3,7 @@
 Phonebook::Phonebook()
 {
 	this->nbContact = 0;
+	this->oldContact = 0;
 	this->isContinue = 1;
 	#ifdef DEBUG
 	std::cout << "Phonebook create" << endl;
@@ -22,12 +23,16 @@ void Phonebook::start()
 	while(this->isContinue)
 	{
 		std::cout << "command: ";
-		std::cin >> input;
-		std::cout << std::endl;
+		std::getline(std::cin, input);
 		if (input == "ADD")
 			this->add_contact();
 		else if (input == "SEARCH")
-			this->search();
+		{
+			if (nbContact)
+				this->search();
+			else
+				std::cout << "No contact" << std::endl;
+		}
 		else if (input == "EXIT")
 			this->isContinue = 0;
 		else
@@ -40,11 +45,11 @@ void Phonebook::search()
 	std::string cmd[] = {"INDEX", "FIRST NAME", "LAST NAME", "NICKNAME"};
 	
 	write_lineX();
-	for(int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		std::cout <<  "| " << std::setfill(' ') << std::setw(10) << cmd[i].substr(0, 10) << " ";
 	std::cout <<  "|" << std::endl;
 	write_lineX();
-	for(int i = 0; i < nbContact; i++)
+	for (int i = 0; i < nbContact; i++)
 	{
 		std::cout <<  "| " << std::setfill(' ') << std::setw(10) << i;
 		std::cout <<  " | " << std::setfill(' ') << std::setw(10) << contacts[i]->get_first_name().substr(0, 10);
@@ -53,20 +58,17 @@ void Phonebook::search()
 	}
 	write_lineX();
 	
-	int output;
-	while (1)
+	int output = 0;
+	std::string out = "";
+
+	std::cout << "Select your index : \n";
+	std::getline(std::cin, out);
+	while (out == "" || std::stoi(out) >= nbContact || std::stoi(out) < 0)
 	{
-		std::cout << "Select your index : \n";
-		std::cin >> output;
-		if (!std::cin || output >= nbContact)
-		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			continue;
-		}
-		else
-			break;
+		std::cout << "Please select your index : ";
+		std::getline(std::cin, out);
 	}
+	output = std::stoi(out);
 	std::cout << std::endl << "First name : " << contacts[output]->get_first_name() << std::endl;
 	std::cout << "Last names : " << contacts[output]->get_last_name() << std::endl;
 	std::cout << "Nickname : " << contacts[output]->get_nickname() << std::endl;
@@ -79,7 +81,13 @@ void Phonebook::add_contact()
 	if (nbContact < 8)
 		this->contacts[nbContact++] = new Contact();
 	else
-		std::cout << "PHONEBOOK is full" << std::endl;
+	{
+		if (oldContact == 8)
+			oldContact = 0;
+		delete this->contacts[oldContact];
+		this->contacts[oldContact] = new Contact();
+		oldContact++;
+	}
 }
 
 int Phonebook::get_nbContact()
