@@ -3,55 +3,47 @@
 
 int main()
 {
-	Bureaucrat poleEmploi = Bureaucrat("Pôle emploi", 150);
-	Bureaucrat *crous = new Bureaucrat("CROUS", 1);
+    Form* constitution = new Form("Constitution", 10, 30);
+    Form* toHigh;
+    Form* toLow;
+    
+    std::cout << *constitution;
+    
+    try
+    {
+       toHigh = new Form("ToHigh", 0, 20);
+    }
+    catch(std::exception & e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
-	try
-	{
-		std::cout << poleEmploi << std::endl;
-		poleEmploi++;
-		std::cout << poleEmploi << std::endl;
-		++poleEmploi;
-		std::cout << poleEmploi << std::endl;
-		poleEmploi--;
-		std::cout << poleEmploi << std::endl;
-		--poleEmploi;
-		std::cout << poleEmploi << std::endl;
-		--poleEmploi;
-		std::cout << poleEmploi << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    try
+    {
+       toLow = new Form("ToLow", 10, 199);
+    }
+    catch(std::exception & e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
-	try
-	{
-		Form *bourse = new Form("bourse", 5);
-		Form cvec = Form("CVEC", 1);
-		std::cout << *crous << std::endl;
-		(*crous)--;
-		std::cout << *crous << std::endl;
-		--(*crous);
-		std::cout << *crous << std::endl;
-		(*crous)++;
-		std::cout << *crous << std::endl;
-		++(*crous);
-		std::cout << *crous << std::endl;
-		++(*crous);
-		std::cout << *crous << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	delete crous;
+    Bureaucrat* bob = new Bureaucrat("Bob", 5);
+    
+    std::cout << *bob;
+
+    bob->signForm(*constitution);
+
+    std::cout << *constitution;
+
+    bob->signForm(*constitution);
+
+    Form* nop = new Form("Constitution", 1, 1);
+    Bureaucrat* nopper = new Bureaucrat("Nopper", 12);
+
+    nopper->signForm(*nop);
+    
+    delete constitution;
+    delete bob;
+    delete nop;
+    delete nopper;
 }

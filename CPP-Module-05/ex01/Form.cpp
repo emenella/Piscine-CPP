@@ -1,16 +1,20 @@
 #include "Form.hpp"
  
-Form::Form(): name("Default Form"), isSigned(false), grade(150) {}
+Form::Form(): name("Default Form"), isSigned(false), gradeSign(150) {}
  
-Form::Form(std::string name, int grade): name(name), isSigned(false), grade(grade) 
+Form::Form(std::string name, int grade, int note): name(name), isSigned(false), gradeSign(grade), gradeExec(note)
 {
-	if (grade < 1)
+	if (gradeSign < 1)
 		throw Form::GradeTooHighException(this->name);
-	else if (grade > 150)
+	else if (gradeSign > 150)
+		throw Form::GradeTooLowException(this->name);
+	if (gradeExec < 1)
+		throw Form::GradeTooHighException(this->name);
+	else if (gradeExec > 150)
 		throw Form::GradeTooLowException(this->name);
 }
  
-Form::Form(const Form&): name(name), isSigned(false), grade(grade)
+Form::Form(const Form &c): name(c.name), isSigned(false), gradeSign(c.gradeSign)
 {
  
 }
@@ -25,14 +29,20 @@ Form& Form::operator=(const Form &st)
 	if (this != &st)
 	{
 		this->isSigned = st.isSigned;
-				this->grade = st.grade;
+		this->gradeSign = st.gradeSign;
+		this->gradeExec = st.gradeExec;
 	}
 	return (*this);
 }
 
-int Form::getGrade() const
+int Form::getGradeSign() const
 {
-	return (grade);
+	return (gradeSign);
+}
+
+int Form::getGradeExec() const
+{
+	return (gradeExec);
 }
 
 std::string Form::getName() const
@@ -47,17 +57,16 @@ bool Form::getIsSigned() const
 
 void Form::beSigned(Bureaucrat& obj)
 {
-	if (obj.getGrade() <= this->grade)
+	if (obj.getGrade() <= this->gradeSign)
 	{
 		this->isSigned = true;
-		obj.signForm(*this);
 	}
 	else
-		throw Form::GradeTooLowException(this->name);
+		throw Form::GradeTooLowException(obj.getName());
 }
 
 std::ostream& operator<<(std::ostream &out, const Form &obj)
 {
-	out << "<" << obj.getName() << ">, form grade <"<< obj.getGrade() << ">, is signed ? <" << obj.getIsSigned()<< ">.";
+	out << "<" << obj.getName() << ">, form grade <"<< obj.getGradeSign() << ">, is signed ? <" << obj.getIsSigned() << ">, grade for execution " << obj.getGradeExec() << "." << std::endl;
 	return (out);
 }

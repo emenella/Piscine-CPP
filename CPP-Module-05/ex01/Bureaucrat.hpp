@@ -4,6 +4,7 @@
 # include "Form.hpp"
 # define ERR_HIGH "Exception: grade is too high from "
 # define ERR_LOW "Exception: grade is too low from "
+class Form;
 
 class Bureaucrat
 {

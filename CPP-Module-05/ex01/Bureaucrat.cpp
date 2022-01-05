@@ -82,12 +82,13 @@ Bureaucrat Bureaucrat::operator--(int)
 
 void Bureaucrat::signForm(Form& obj)
 {
-	if (grade > 150)
-		std::cout << "<bureaucrat "<< name << "> cannot sign <" << obj.getName() << "> because <" << ERR_LOW << ">" << std::endl;
-	else if (grade < 1)
-		std::cout << "<bureaucrat "<< name << "> cannot sign <" << obj.getName() << "> because <" << ERR_HIGH << ">" << std::endl;
-	else
+	if (grade <= obj.getGradeSign())
+	{
 		std::cout << "<bureaucrat "<< name << "> signs <form>" << std::endl;
+		obj.beSigned(*this);
+	}
+	else
+		throw Bureaucrat::GradeTooLowException(this->name);
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &obj)

@@ -1,25 +1,29 @@
 #pragma once
 # include <iostream>
+# include <exception>
 # include "Bureaucrat.hpp"
 # define ERR_HIGH "Exception: grade is too high from "
 # define ERR_LOW "Exception: grade is too low from "
- 
+class Bureaucrat;
+
 class Form
 {
 		private:
 				const std::string	name;
 				bool				isSigned;
-				int					grade;
+				int					gradeSign;
+				int					gradeExec;
  
 		public:
 				Form();
-				Form(std::string, int);
+				Form(std::string, int, int);
 				Form(const Form&);
 				std::string getName() const;
 				bool getIsSigned() const;
 				~Form();
 				Form& operator=(const Form&);
-				int getGrade() const;
+				int getGradeSign() const;
+				int getGradeExec() const;
 				void beSigned(Bureaucrat&);
 				class GradeTooHighException : public std::exception
 				{
@@ -35,7 +39,7 @@ class Form
 						private:
 								std::string cause;
 						public:
-								GradeTooLowException(const std::string name) throw(): cause(ERR_HIGH + name) {}
+								GradeTooLowException(const std::string name) throw(): cause(ERR_LOW + name) {}
 								~GradeTooLowException() throw() {}
 								const char* what() const throw() {return (cause.c_str());}
 				};
