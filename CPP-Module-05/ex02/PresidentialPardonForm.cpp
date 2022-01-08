@@ -19,7 +19,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor)
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
 	std::cout << "We announce that <"<< this->name << "> has been forgiven by Zafod Beeblebrox." << std::endl;

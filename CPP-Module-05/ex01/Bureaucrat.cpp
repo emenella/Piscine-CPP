@@ -82,9 +82,11 @@ Bureaucrat Bureaucrat::operator--(int)
 
 void Bureaucrat::signForm(Form& obj)
 {
+	if (obj.getIsSigned())
+		throw Bureaucrat::FormIsAlreadySigned(this->name);
 	if (grade <= obj.getGradeSign())
 	{
-		std::cout << "<bureaucrat "<< name << "> signs <form>" << std::endl;
+		std::cout << "<bureaucrat "<< name << "> signs <"<< obj.getName() << ">" << std::endl;
 		obj.beSigned(*this);
 	}
 	else

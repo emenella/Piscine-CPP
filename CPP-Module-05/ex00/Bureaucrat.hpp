@@ -35,7 +35,7 @@ class Bureaucrat
 			private:
 				std::string cause;
 			public:
-				GradeTooLowException(const std::string name) throw(): cause(ERR_HIGH + name) {}
+				GradeTooLowException(const std::string name) throw(): cause(ERR_LOW + name) {}
 				~GradeTooLowException() throw() {}
 				const char* what() const throw() {return (cause.c_str());}
 		};

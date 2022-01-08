@@ -4,7 +4,7 @@
 
 static void testForm(Bureaucrat* bur, Form* form)
 {
-    std::cout << std::endl << "Sign & Execute \033[33m" << form->getName() << "\033[0m : " << std::endl;
+    std::cout << std::endl << "Sign & Execute \033[33m" << bur->getName() << "\033[0m : " << std::endl;
     bur->signForm(*form);
     bur->executeForm(*form);
 }

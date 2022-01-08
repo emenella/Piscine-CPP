@@ -4,7 +4,7 @@
 # include "Bureaucrat.hpp"
 # define ERR_HIGH "Exception: grade is too high from "
 # define ERR_LOW "Exception: grade is too low from "
-# define ERR_SIGNED "Exception: form isn't signed"
+# define ERR_SIGNED "Exception: the form isn't signed"
 
 class Bureaucrat;
 
@@ -27,7 +27,7 @@ class Form
 				int getGradeSign() const;
 				int getGradeExec() const;
 				void beSigned(Bureaucrat&);
-				virtual void execute(Bureaucrat const &executor);
+				virtual void execute(Bureaucrat const &executor) const;
 				class GradeTooHighException : public std::exception
 				{
 						private:

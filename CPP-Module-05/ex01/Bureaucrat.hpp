@@ -4,6 +4,7 @@
 # include "Form.hpp"
 # define ERR_HIGH "Exception: grade is too high from "
 # define ERR_LOW "Exception: grade is too low from "
+# define ERR_ALREADY "Exception: the form is already signed from "
 class Form;
 
 class Bureaucrat
@@ -38,9 +39,18 @@ class Bureaucrat
 			private:
 				std::string cause;
 			public:
-				GradeTooLowException(const std::string name) throw(): cause(ERR_HIGH + name) {}
+				GradeTooLowException(const std::string name) throw(): cause(ERR_LOW + name) {}
 				~GradeTooLowException() throw() {}
 				const char* what() const throw() {return (cause.c_str());}
 		};
+		class FormIsAlreadySigned: public std::exception
+				{
+						private:
+								std::string cause;
+						public:
+								FormIsAlreadySigned(const std::string name) throw(): cause(ERR_ALREADY + name) {}
+								~FormIsAlreadySigned() throw() {}
+								const char* what() const throw() {return (cause.c_str());}
+				};
 };
 std::ostream& operator<<(std::ostream&, const Bureaucrat&);

@@ -65,11 +65,11 @@ void Form::beSigned(Bureaucrat& obj)
 		throw Form::GradeTooLowException(obj.getName());
 }
 
-void Form::execute(Bureaucrat const &executor)
+void Form::execute(Bureaucrat const &executor) const
 {
-	if (this->isSigned== false)
+	if (this->isSigned == false)
 		throw Form::FormIsNotSigned(this->name);
-	if (executor.getGrade() <= this->gradeExec)
+	if (executor.getGrade() >= this->gradeExec)
 		throw Form::GradeTooLowException(this->name);
 }
 
