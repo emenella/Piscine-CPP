@@ -20,11 +20,12 @@ class Form
 				Form(const Form&);
 				std::string getName() const;
 				bool getIsSigned() const;
-				~Form();
+				virtual ~Form();
 				Form& operator=(const Form&);
 				int getGradeSign() const;
 				int getGradeExec() const;
 				void beSigned(Bureaucrat&);
+				virtual void execute(Bureaucrat const &executor);
 				class GradeTooHighException : public std::exception
 				{
 						private:

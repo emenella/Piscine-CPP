@@ -1,6 +1,6 @@
 GCC := clang++ -std=c++98 -Wall -Wextra -Werror
-SRC := ./Bureaucrat.cpp ./main.cpp ./Form.cpp
-INC := ./Bureaucrat.hpp ./Form.hpp
+SRC := Bureaucrat.cpp main.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+INC := Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 NAME := bureaucrat
 OBJ=$(SRC:.cpp=.o)
 
