@@ -4,11 +4,13 @@
 # include "Bureaucrat.hpp"
 # define ERR_HIGH "Exception: grade is too high from "
 # define ERR_LOW "Exception: grade is too low from "
+# define ERR_SIGNED "Exception: form isn't signed"
+
 class Bureaucrat;
 
 class Form
 {
-		private:
+		protected:
 				const std::string	name;
 				bool				isSigned;
 				int					gradeSign;
@@ -42,6 +44,15 @@ class Form
 						public:
 								GradeTooLowException(const std::string name) throw(): cause(ERR_LOW + name) {}
 								~GradeTooLowException() throw() {}
+								const char* what() const throw() {return (cause.c_str());}
+				};
+				class FormIsNotSigned : public std::exception
+				{
+						private:
+								std::string cause;
+						public:
+								FormIsNotSigned(const std::string name) throw(): cause(ERR_SIGNED + name) {}
+								~FormIsNotSigned() throw() {}
 								const char* what() const throw() {return (cause.c_str());}
 				};
 };

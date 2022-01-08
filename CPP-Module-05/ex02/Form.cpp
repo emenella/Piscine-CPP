@@ -65,6 +65,14 @@ void Form::beSigned(Bureaucrat& obj)
 		throw Form::GradeTooLowException(obj.getName());
 }
 
+void Form::execute(Bureaucrat const &executor)
+{
+	if (this->isSigned== false)
+		throw Form::FormIsNotSigned(this->name);
+	if (executor.getGrade() <= this->gradeExec)
+		throw Form::GradeTooLowException(this->name);
+}
+
 std::ostream& operator<<(std::ostream &out, const Form &obj)
 {
 	out << "<" << obj.getName() << ">, form grade <"<< obj.getGradeSign() << ">, is signed ? <" << obj.getIsSigned() << ">, grade for execution " << obj.getGradeExec() << "." << std::endl;
